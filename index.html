@@ -180,32 +180,54 @@
   }
   .vinyl-center { width: 30px; height: 30px; background: #ffccd5; border-radius: 50%; }
   @keyframes rotate { 100% { transform: rotate(360deg); } }
-  
+   
   /* Customized Simple Audio Element Container */
   .audio-block { display: flex; flex-direction: column; gap: 10px; flex-grow: 1; text-align: left; }
   audio { width: 100%; }
 
   /* Letter Layout with Repeating Kisses Border */
-.note-container {
-  background: #fff; 
-  padding: 30px; 
-  border-radius: 15px; 
-  max-width: 400px; 
-  text-align: left;
-  font-family: 'Georgia', serif; 
-  line-height: 1.6; 
-  color: #444; 
-  position: relative;
-  box-sizing: border-box;
+  .note-container {
+    background: #fff; 
+    max-width: 450px; 
+    width: 90%;
+    max-height: 60vh; 
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    box-sizing: border-box;
+    border: 16px solid transparent;
+    border-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='48' height='48' viewBox='0 0 48 48'><text x='0' y='36' font-size='32'>💋</text></svg>") 33% repeat;
+    border-radius: 15px; 
+    box-shadow: 0 10px 30px rgba(233,77,88,0.15);
+  }
 
-  /* This creates a crisp, repeating emoji framework around the note container box */
-  border: 16px solid transparent;
-  border-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='48' height='48' viewBox='0 0 48 48'><text x='0' y='36' font-size='32'>💋</text></svg>") 33% repeat;
-}
+  /* Internal scrolling area for beautiful paragraph display */
+  .note-content {
+    padding: 10px 20px 20px 20px;
+    overflow-y: auto;
+    text-align: left;
+    font-family: 'Georgia', serif; 
+    font-size: 16px;
+    line-height: 1.8; 
+    color: #444; 
+    -webkit-overflow-scrolling: touch; 
+  }
+
+  /* Custom styled inner scrollbar */
+  .note-content::-webkit-scrollbar {
+    width: 6px;
+  }
+  .note-content::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  .note-content::-webkit-scrollbar-thumb {
+    background: #ffccd5;
+    border-radius: 10px;
+  }
 
   .btn-back {
     background-color: var(--accent-color); color: white;
-    padding: 10px 24px; font-size: 16px; margin-top: 30px;
+    padding: 10px 24px; font-size: 16px; margin-top: 20px;
     font-family: sans-serif; border-radius: 8px; border: none; cursor: pointer;
   }
 </style>
@@ -252,7 +274,6 @@
   
   <div class="scrolling-container">
     <div class="scatter-gallery">
-      <!-- Added click action to trigger zoom -->
       <div class="photo-card p1" onclick="zoomImage(this)"><img src="https://i.postimg.cc/MTx2NV1P/IMG-20260710-214649.jpg" alt="Pic 1"></div>
       <div class="photo-card p2" onclick="zoomImage(this)"><img src="https://i.postimg.cc/SsqF3Ccw/Snapchat-1534207178.jpg" alt="Pic 2"></div>
       <div class="photo-card p3" onclick="zoomImage(this)"><img src="https://i.postimg.cc/4dZkqVpj/IMG-20260710-220035.jpg" alt="Pic 3"></div>
@@ -292,10 +313,12 @@
 <!-- REVEAL SCREEN: NOTE -->
 <div id="revealNote" class="reveal-screen">
   <div class="note-container">
-    <h2 style="font-family: var(--font-main); color: var(--accent-color); text-align: center; margin-top: 0; font-size: 24px;">Dear Zana,</h2>
-    <p>
-      I want to say baby thank you for the happiest 1 year and 6 months of my life even though we have had our ups and our downs you will still always be my favourite and best part of my life you've made me so happy during this time and i really mean it what we have is like nothing ive ever felt before i would never do any of this for anyone, you make me happy everyday baby you being there waking up to you everything it makes me happy and i would be so devastated if anything ever got between that you're my heart, my soulmate any my everything. I could never forget what we have baby i will ALWAYS remember it you're always gonna be in my heart even if i dont show it, you gave me love like no one and i've never felt so inlove with anyone in my life i really mean it baby i would give everything for us baby i love you, i hope i make you feel loved aswell im really trying my best to show i love you baby and i always will no matter what. I hope we continue forever and can have such a beautiful future together i hope you're willing to come to the uk it would mean everything to me and i just know we would live happily ever after forever. we have to last forever or ill be mad at you hahaha. I look forward to our future baby the times we get together because this distance is really hard i look forward to coming to see my love my everything all the time, i have the BEST time with you and no one could ever replace the feeling i have when im with you, im looking forward to our holidays we can once go on together to hot countries like spain or whatever 😭i really hope we can experience that atleast once together, im looking forward to having you in my life FOREVER aswell baby i love you so much and i hope this made you happy i put alot of time into doing this i didnt think it would be so hard its 12am now and i missed the 12 am im sorry baby it just took so long but i hope it put a smile on your face and i hope i expressed my love for you in a way which you feel it i love you so much my baby happy 6 months my everything💘💘💘💘💘💘
-    </p>
+    <h2 style="font-family: var(--font-main); color: var(--accent-color); text-align: center; margin: 15px 0 5px 0; font-size: 26px;">Dear Love,</h2>
+    <div class="note-content">
+      <p style="margin: 0;">
+        I want to say baby thank you for the happiest 1 year and 6 months of my life even though we have had our ups and our downs you will still always be my favourite and best part of my life you've made me so happy during this time and i really mean it what we have is like nothing ive ever felt before i would never do any of this for anyone, you make me happy everyday baby you being there waking up to you everything it makes me happy and i would be so devastated if anything ever got between that you're my heart, my soulmate any my everything. I could never forget what we have baby i will ALWAYS remember it you're always gonna be in my heart even if i dont show it, you gave me love like no one and i've never felt so inlove with anyone in my life i really mean it baby i would give everything for us baby i love you, i hope i make you feel loved aswell im really trying my best to show i love you baby and i always will no matter what. I hope we continue forever and can have such a beautiful future together i hope you're willing to come to the uk it would mean everything to me and i just know we would live happily ever after forever. we have to last forever or ill be mad at you hahaha. I look forward to our future baby the times we get together because this distance is really hard i look forward to coming to see my love my everything all the time, i have the BEST time with you and no one could ever replace the feeling i have when im with you, im looking forward to our holidays we can once go on together to hot countries like spain or whatever 😭i really hope we can experience that atleast once together, im looking forward to having you in my life FOREVER aswell baby i love you so much and i hope this made you happy i put alot of time into doing this i didnt think it would be so hard its 12am now and i missed the 12 am im sorry baby it just took so long but i hope it put a smile on your face and i hope i expressed my love for you in a way which you feel it i love you so much my baby happy 6 months my everything💘💘💘💘💘💘
+      </p>
+    </div>
   </div>
   <button class="btn btn-back" onclick="closeReveal('revealNote')">Go back</button>
 </div>
@@ -306,7 +329,7 @@
   function showNextScreen() {
     document.getElementById(`screen${currentScreen}`).classList.remove('active');
     currentScreen++;
-    document.getElementById(`screenScreen${currentScreen}` ? `screen${currentScreen}` : 'screen2').classList.add('active');
+    document.getElementById(`screen${currentScreen}` ? `screen${currentScreen}` : 'screen2').classList.add('active');
   }
 
   function moveNoButton() {
